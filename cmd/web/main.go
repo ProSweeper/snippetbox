@@ -23,7 +23,8 @@ func main() {
 	mux.HandleFunc("GET /snippet/create", snippetCreate)
 	mux.HandleFunc("POST /snippet/create", snippetCreatePost)
 
-	logger.Info("Starting Server", "address", *address)
+	logger.Info("Starting Server", slog.String("address", *address))
+	str := "sting"
 
 	err := http.ListenAndServe(*address, mux)
 
